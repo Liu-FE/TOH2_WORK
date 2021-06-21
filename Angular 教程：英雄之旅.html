@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular 教程：英雄之旅</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1><a id="_0"></a>《通信软件开发与应用》课程结业报告</h1>
+<p>演示：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210621090005170.gif" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>Angular是一个由Google开发维护的开源前端开发框架和平台（其它两个流行的是React和Vue）。<br>
+框架提供了大量高效的结构或者良好的模式，我们根据框架提供的结构或者模式去书写代码，由框架帮助我们去执行相应的操作。</p>
+</blockquote>
+<p>《英雄之旅》应用，可以显示一个英雄列表， 并允许用户选择一个英雄，查看该英雄的详细信息，并对英雄进行增加、修改和删除功能。</p>
+<h2><a id="_17"></a>开发过程</h2>
+<p>首先，一个工程都需要先建立一个环境，所以我们先来搭建一个angular的环境。以下介绍下各个环境。<br>
+①安装JS运行环境node和版本控器git：Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型,使其轻量又高效。Node.js 的包管理器 npm,是全球最大的开源库生态系统。Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。</p>
+<p>②包管理器yarn：Yarn 有效地对请求进行排队处理,避免发起的请求如瀑布般倾泻,以便最大限度地利用网络资源。 相同的软件包 从npm 安装软件包并保持相同的包管理流程。</p>
+<p>③包源配置：默认包仓库在海外, 速度及稳定性受到GFW的影响(WTF GFW！), 改为使用淘宝的包源。</p>
+<p>④Angular开发工具angular/cli：Angular CLI用于简单，快速构建Angular2项目，只要掌握几行命令就能扣减前端架构。依赖于NodeJs和npm。</p>
+<p>⑤后台服务器Deployd：Deployd是一个基于NodeJs和MongoDB数据库的开箱即用的后台服务程序。这里我先在本地端口部署了MongoDB数据库，之后将MongDB部署在百度云上。</p>
+<p>整个开发的流程为创建英雄编辑器，显示英雄列表，添加服务，从数据库中获取数据。并最终在英雄之旅中实现了增删改的功能。</p>
+<p>1.创建英雄编辑器<br>
+该开发流程主要的工作有，使用 Angular CLI 创建一个名为 heroes 的新组件；从 Angular 核心库中导入 Component 符号，并为组件类加上 @Component 装饰器；显示 HeroesComponent；使用双向数据绑定修改英雄编号和名称；声明并添加元数据至组件类中<br>
+2.显示英雄列表<br>
+主要内容就是扩展《英雄之旅》应用，让它显示一个英雄列表， 并允许用户选择一个英雄，查看该英雄的详细信息。<br>
+3.添加服务<br>
+组件不应该直接获取或保存数据，它们不应该了解是否在展示假数据。 它们应该聚焦于展示数据，而把数据访问的职责委托给某个服务。<br>
+本节主要内容创建一个HeroService，来进行各种操作。本节课，你将创建一个 HeroService，应用中的所有类都可以使用它来获取英雄列表，依靠 Angular 的依赖注入机制把它注入到 HeroesComponent 的构造函数中。<br>
+4.从数据库中获取数据<br>
+主要通过 HTTP 请求获取英雄数据。使用是MongDB进行作为数据库，并完成了云上部署数据库。用户可以添加、编辑和删除英雄，并通过 HTTP 来保存这些更改。<br>
+<a href="https://blog.csdn.net/lch551218/article/details/104067710">云上部署MongoDB</a></p>
+<h2><a id="_41"></a>遇到的问题以及部分解决方法</h2>
+<p>本节主要记录遇到的问题以及部分问题的解决方法，在解决方法的过程中改正了之前对于个别命令以及语法的错误认识和错误用法，也逐渐加深了我对angular开发的操作流程。</p>
+<h3><a id="1__43"></a>问题1 ：</h3>
+<p><img src="https://img-blog.csdnimg.cn/20210508104907443.png" alt="在这里插入图片描述"></p>
+<p>解决方法：<br>
+<a href="https://blog.csdn.net/weixin_42997659/article/details/106992445">无法加载脚本</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20210508105014487.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MjY0ODA4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>组件</strong>是 Angular 应用中的基本构造块。 它们在屏幕上显示数据，监听用户输入，并且根据这些输入执行相应的动作。</p>
+<p><strong>双花括号</strong>语法是 Angular 的<strong>插值绑定</strong>语法。 这个插值绑定的意思是把组件的 title 属性的值绑定到 HTML 中的 h1 标记中。<strong>相当于title是个变量</strong></p>
+<p><strong>@Component</strong> 是个装饰器函数，用于为该组件指定 Angular 所需的元数据。</p>
+<h3><a id="2angular_60"></a>问题2：关闭angular严格模式</h3>
+<p>在tsconfig.json 中关闭严格模式<br>
+<img src="https://img-blog.csdnimg.cn/20210511114725554.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210511114716322.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MjY0ODA4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2><a id="3_66"></a>问题3</h2>
+<p><img src="https://img-blog.csdnimg.cn/20210518110934258.png" alt="在这里插入图片描述"></p>
+<pre><code class="prism language-php"><span class="token constant">PS</span> F<span class="token punctuation">:</span>\<span class="token package">sort</span><span class="token operator">-</span>test\<span class="token package">vcode</span> test\<span class="token package">web<span class="token punctuation">\</span>angular</span><span class="token operator">-</span>tour<span class="token operator">-</span>of<span class="token operator">-</span>heroes\<span class="token package">TourOfHero</span><span class="token operator">&gt;</span> dpd <span class="token operator">-</span>d
+deployd <span class="token constant">CLI</span> version <span class="token number">2.0</span><span class="token number">.2</span>
+starting deployd
+Failed to start MongoDB <span class="token punctuation">(</span>Make sure <span class="token single-quoted-string string">'mongod'</span> are in your <span class="token variable">$PATH</span> <span class="token keyword">or</span> <span class="token keyword">use</span> <span class="token package">dpd</span> <span class="token operator">--</span>mongod option<span class="token punctuation">.</span> Ref<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token comment">//docs.deployd.com/docs/basics/cli.html)</span>
+</code></pre>
+<p><a href="https://www.cnblogs.com/sdcs/p/8352282.html">mongoDB的配置以及运行</a></p>
+<p>之后重新新建文件即可成功运行</p>
+<h3><a id="4_81"></a>问题4</h3>
+<p><img src="https://img-blog.csdnimg.cn/20210617080601499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MjY0ODA4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+Service.ts  中deleteHero应操作的对象是类中的成员而不是类的一个属性，这样会无法对数据库数据进行正确操作。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210617080752901.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MjY0ODA4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+如上图修改即可完成对数据的删除。</p>
+<h3><a id="5_88"></a>问题5（未解决）</h3>
+<p><img src="https://img-blog.csdnimg.cn/20210617193000604.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MjY0ODA4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/2021061719301246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MjY0ODA4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>通过进行搜索发现已经不支持该模块，需要进行升级才可以使用。</p>
+<h3><a id="6_98"></a>问题6</h3>
+<p>问题：<br>
+ng add angular-bootstrap-md<br>
+Cannot find module ‘@schematics/angular/utility/config’</p>
+<p>解决方法：</p>
+<pre><code class="prism language-c">npm uninstall @schematics<span class="token operator">/</span>angular
+npm install @schematics<span class="token operator">/</span>angular@<span class="token number">9.1</span><span class="token number">.0</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210621090109388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MjY0ODA4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210621090118423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MjY0ODA4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><a href="https://stackoverflow.com/questions/62917001/cannot-find-module-schematics-angular-utility-project">Cannot find module ‘@schematics/angular/utility/config’</a></p>
+<h2><a id="_123"></a>总结</h2>
+<p>首先，我先自我批评下，学习的过程我比较痛苦。有可能是我个人时间安排以及效率问题，将作业拖到了临近截止日期才进行完成，且个人认为效果不好。主要实现了angular动态网站英雄之旅的增加，修改和删除。且大多数语法都只是作为了了解，并没有深刻的熟练掌握，自己动手能力的锻炼还不足。<br>
+其次，在课上由于有老师引导可以跟着老师的思维的节奏去想问题和解决问题，但一到代码实战就立刻发杵，知道命令从那里来以及那里去，以及错误的位置，但苦于找不到解决方法，这也反映出我个人能力的欠缺。我想老师所提的学习的过程应该是简单和快乐的本意，应该是在学习中发现自己的问题然后自己解决它，然后一步一步的成长，不能单方面的只为了完成任务而忽视自己的缺点以及问题，同时也特别感谢老师的认真授课和帮助，也感谢同学间的帮助。诚然开发一个成熟的网站，我还欠缺些能力和时间，但我从中也感受到了开发网站来实现动作以及展示自己的所学知识的快乐。希望自己多加强动手能力和代码学习能力，努力让每一次学习过程都简单而快乐。</p>
+</div>
+</body>
+
+</html>
